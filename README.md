@@ -147,14 +147,17 @@ As an open-source course, you don't have to enroll. Everything is self-paced, fr
 
 This **open-source course consists of 6 comprehensive modules** covering theory, system design, and hands-on implementation.
 
-Our recommendation for getting the most out of this course:
+[**Read this**](https://decodingml.substack.com/p/from-0-to-pro-ai-engineering-roadmap) for a quick walkthrough of what you will learn in each module.
+
+**Our recommendation for getting the most out of this course:**
 1. Clone the repository.
 2. Read the materials.
-3. Setup the code and run it to replicate our results.
-4. Go deeper into the code to understand the details of the implementation.
+3. Set up the code and run it to replicate our results.
+4. Go deeper into the code to understand the implementation details.
 
 | Module | Materials | Description | Running the code |
 |--------|-----------|-------------|------------------|
+| 0 | [Modules Overview](https://decodingml.substack.com/p/from-0-to-pro-ai-engineering-roadmap) | Quick walkthrough over what you will learn in each module. | **No code** |
 | 1 | [Build your Second Brain AI assistant](https://decodingml.substack.com/p/build-your-second-brain-ai-assistant) | Architect an AI assistant for your Second Brain. | **No code** |
 | 2 | [Data pipelines for AI assistants](https://decodingml.substack.com/p/data-pipelines-for-ai-assistants) | Build a data ETL pipeline to process custom Notion data, crawl documents, compute a quality score using LLMs & heuristics, and ingest them into a document database. | [apps/second-brain-offline](apps/second-brain-offline) |
 | 3 | [From noisy docs to fine-tuning datasets](https://decodingml.substack.com/p/from-noisy-docs-to-fine-tuning-datasets) | Use the Notion and crawled data to generate a high-quality summarization instruct dataset using distillation. | [apps/second-brain-offline](apps/second-brain-offline) |
