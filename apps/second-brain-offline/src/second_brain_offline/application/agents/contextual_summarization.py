@@ -292,8 +292,7 @@ highlighting the most significant insights. Answer only with the succinct contex
         base_url: str | None = settings.HUGGINGFACE_DEDICATED_ENDPOINT,
         api_key: str | None = settings.HUGGINGFACE_ACCESS_TOKEN,
         max_characters: int = 128,
-        mock: bool = False,
-        max_concurrent_requests: int = 4,
+        mock: bool = False,        max_concurrent_requests: int = 4,
     ) -> None:
         self.model_id = model_id
         self.base_url = base_url
@@ -301,7 +300,7 @@ highlighting the most significant insights. Answer only with the succinct contex
         self.max_characters = max_characters
         self.mock = mock
         self.max_concurrent_requests = max_concurrent_requests
-
+        
         if self.model_id == "tgi":
             assert self.base_url and self.api_key, (
                 "Base URL and API key are required for TGI Hugging Face Dedicated Endpoint"
@@ -312,7 +311,10 @@ highlighting the most significant insights. Answer only with the succinct contex
                 api_key=self.api_key,
             )
         else:
-            self.client = AsyncOpenAI()
+            self.client = AsyncOpenAI(
+                base_url=settings.OPENAI_BASE_URL,
+                api_key=settings.OPENAI_API_KEY,
+            )
 
     def __call__(self, content: str, chunks: list[str]) -> list[str]:
         """Process document chunks for contextual summarization.

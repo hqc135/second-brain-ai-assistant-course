@@ -3,6 +3,8 @@ from typing import Literal, Union
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import OpenAIEmbeddings
 
+from second_brain_online.config import settings
+
 EmbeddingModelType = Literal["openai", "huggingface"]
 EmbeddingsModel = Union[OpenAIEmbeddings, HuggingFaceEmbeddings]
 
@@ -42,15 +44,15 @@ def get_openai_embedding_model(model_id: str) -> OpenAIEmbeddings:
     """Gets an OpenAI embedding model instance.
 
     Args:
-        model_id (str): The ID/name of the OpenAI embedding model to use
-
-    Returns:
+        model_id (str): The ID/name of the OpenAI embedding model to use    Returns:
         OpenAIEmbeddings: A configured OpenAI embeddings model instance with
             special token handling enabled
     """
     return OpenAIEmbeddings(
         model=model_id,
         allowed_special={"<|endoftext|>"},
+        base_url=settings.OPENAI_BASE_URL,
+        api_key=settings.OPENAI_API_KEY,
     )
 
 

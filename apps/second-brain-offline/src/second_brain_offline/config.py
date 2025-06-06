@@ -62,11 +62,13 @@ class Settings(BaseSettings):
     # --- Notion API Configuration ---
     NOTION_SECRET_KEY: str | None = Field(
         default=None, description="Secret key for Notion API authentication."
-    )
-
-    # --- OpenAI API Configuration ---
+    )    # --- OpenAI API Configuration ---
     OPENAI_API_KEY: str = Field(
         description="API key for OpenAI service authentication.",
+    )
+    OPENAI_BASE_URL: str = Field(
+        default="https://api.openai.com/v1",
+        description="Base URL for OpenAI API service.",
     )
 
     @field_validator("OPENAI_API_KEY")

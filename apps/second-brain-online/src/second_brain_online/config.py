@@ -46,11 +46,13 @@ class Settings(BaseSettings):
     MONGODB_URI: str = Field(
         default="mongodb://decodingml:decodingml@localhost:27017/?directConnection=true",
         description="Connection URI for the local MongoDB Atlas instance.",
-    )
-
-    # --- OpenAI API Configuration ---
+    )    # --- OpenAI API Configuration ---
     OPENAI_API_KEY: str = Field(
         description="API key for OpenAI service authentication.",
+    )
+    OPENAI_BASE_URL: str = Field(
+        default="https://api.openai.com/v1",
+        description="Base URL for OpenAI API service.",
     )
     OPENAI_MODEL_ID: str = Field(
         default="gpt-4o-mini", description="Identifier for the OpenAI model to be used."

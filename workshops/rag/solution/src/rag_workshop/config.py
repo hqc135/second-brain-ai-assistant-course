@@ -27,9 +27,12 @@ class Settings(BaseSettings):
         description="Name of the MongoDB collection for the RAG.",
     )
 
-    # --- OpenAI API Configuration ---
-    OPENAI_API_KEY: str = Field(
+    # --- OpenAI API Configuration ---    OPENAI_API_KEY: str = Field(
         description="API key for OpenAI service authentication.",
+    )
+    OPENAI_BASE_URL: str = Field(
+        default="https://api.openai.com/v1",
+        description="Base URL for OpenAI API service.",
     )
     OPENAI_MODEL_ID: str = Field(
         default="gpt-4o-mini",

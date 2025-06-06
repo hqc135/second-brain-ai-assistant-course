@@ -17,11 +17,9 @@ def build_agent() -> Any:
     Returns:
         Any: A configured ToolCallingAgent instance with MongoDB retriever tool.
     """
-    retriever_tool = MongoDBRetrieverTool()
-
-    model = LiteLLMModel(
+    retriever_tool = MongoDBRetrieverTool()    model = LiteLLMModel(
         model_id=settings.OPENAI_MODEL_ID,
-        api_base="https://api.openai.com/v1",
+        api_base=settings.OPENAI_BASE_URL,
         api_key=settings.OPENAI_API_KEY,
     )
 

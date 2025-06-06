@@ -89,9 +89,8 @@ Return the document in plain text format regardless of the original format.
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-
         self.__client = OpenAI(
-            base_url="https://api.openai.com/v1",
+            base_url=settings.OPENAI_BASE_URL,
             api_key=settings.OPENAI_API_KEY,
         )
 

@@ -24,6 +24,7 @@ dependencies = [
     "crawl4ai>=0.3.745",
     "langchain-huggingface>=0.1.2",
     "matplotlib>=3.10.0",
+    "litellm>=1.59.3",
 ]
 
 [dependency-groups]

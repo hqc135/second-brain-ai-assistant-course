@@ -12,7 +12,7 @@ def etl_precomputed(
 ) -> None:
     crawled_data_dir = data_dir / "crawled"
     documents = read_documents_from_disk(
-        data_directory=crawled_data_dir, nesting_level=0
+        data_directory=crawled_data_dir, nesting_level=1  # 改为1以读取子目录中的文件
     )
     ingest_to_mongodb(
         models=documents,

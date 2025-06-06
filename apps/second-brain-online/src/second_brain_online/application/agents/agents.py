@@ -34,15 +34,14 @@ class AgentWrapper:
 
     @property
     def agent_name(self) -> str:
-        return self.__agent.agent_name
-
-    @property
+        return self.__agent.agent_name    @property
     def max_steps(self) -> str:
         return self.__agent.max_steps
 
     @classmethod
     def build_from_smolagents(cls, retriever_config_path: Path) -> "AgentWrapper":
         retriever_tool = MongoDBRetrieverTool(config_path=retriever_config_path)
+        
         if settings.USE_HUGGINGFACE_DEDICATED_ENDPOINT:
             logger.warning(
                 f"Using Hugging Face dedicated endpoint as the summarizer with URL: {settings.HUGGINGFACE_DEDICATED_ENDPOINT}"
@@ -53,10 +52,10 @@ class AgentWrapper:
                 f"Using OpenAI as the summarizer with model: {settings.OPENAI_MODEL_ID}"
             )
             summarizer_tool = OpenAISummarizerTool(stream=False)
-
+        
         model = LiteLLMModel(
             model_id=settings.OPENAI_MODEL_ID,
-            api_base="https://api.openai.com/v1",
+            api_base=settings.OPENAI_BASE_URL,
             api_key=settings.OPENAI_API_KEY,
         )
 

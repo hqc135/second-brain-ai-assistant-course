@@ -72,9 +72,13 @@ def create_rag_chain(config_path: Path) -> Any:
 {context}
 
 Question: {question}
-"""
-    prompt = ChatPromptTemplate.from_template(template)
-    llm = ChatOpenAI(temperature=0, model="gpt-4o")
+"""    prompt = ChatPromptTemplate.from_template(template)
+    llm = ChatOpenAI(
+        temperature=0, 
+        model="gpt-4o",
+        base_url=settings.OPENAI_BASE_URL,
+        api_key=settings.OPENAI_API_KEY
+    )
     parse_output = StrOutputParser()
 
     return retrieve | prompt | llm | parse_output
